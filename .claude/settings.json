@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(file /Users/ruby/Desktop/projec/linkedin-case-study/public/*.png)"
+    ]
+  }
+}

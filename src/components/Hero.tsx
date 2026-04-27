@@ -21,7 +21,7 @@ export default function Hero() {
       {/* Heading — line 1 black, line 2 blue, exact PDF layout */}
       <h1 className="font-black leading-[1.04] tracking-tight mb-8" style={{ fontSize: "clamp(48px, 6vw, 80px)" }}>
         <span className="block text-gray-900">A job search that finally</span>
-        <span className="block text-[#0A66C2]">talks back</span>
+        <span className="block text-[#007EBB]">talks back</span>
       </h1>
 
       {/* Subtitle — two lines matching PDF */}

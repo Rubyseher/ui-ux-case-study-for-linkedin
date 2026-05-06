@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(file /Users/ruby/Desktop/projec/linkedin-case-study/public/*.png)"
+      "Bash(file /Users/ruby/Desktop/projec/linkedin-case-study/public/*.png)",
+      "Bash(lsof -i :3000 -i :3001 -sTCP:LISTEN)",
+      "Bash(find /tmp /var/folders -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \\\\\\) -mmin -10 2>/dev/null | head -20)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -sI http://localhost:3001/buisness/buisness_stats.png)",
+      "Bash(curl -sI http://localhost:3000/buisness/buisness_stats.png)"
     ]
   }
 }

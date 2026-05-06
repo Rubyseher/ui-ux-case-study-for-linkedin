@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen text-center px-8 pt-20">
+    <section className="flex flex-col items-center justify-center min-h-[80vh]  text-center px-8 pt-20">
       {/* LinkedIn badge */}
       <div className="flex items-center gap-3 mb-12">
         <Image
@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
 
       {/* Heading — line 1 black, line 2 blue, exact PDF layout */}
-      <h1 className="font-black leading-[1.04] tracking-tight mb-8" style={{ fontSize: "clamp(48px, 6vw, 80px)" }}>
+      <h1 className="leading-[1.04] tracking-tight mb-8" style={{ fontSize: "clamp(48px, 6vw, 80px)", fontWeight: 700 }}>
         <span className="block text-gray-900">A job search that finally</span>
         <span className="block text-[#007EBB]">talks back</span>
       </h1>

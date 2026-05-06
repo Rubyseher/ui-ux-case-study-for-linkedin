@@ -2,45 +2,58 @@
 
 import { useEffect, useState } from "react";
 import ChallengeSection from "./sections/Challenge";
+import ContextSection from "./sections/Context";
 import BusinessSection from "./sections/Business";
 import UserInterviewsSection from "./sections/UserInterviews";
+import RedefinedChallengeSection from "./sections/RedefinedChallenge";
+import CompetitorsSection from "./sections/Competitors";
+import SolutionSection from "./sections/Solution";
+import LearningSection from "./sections/Learning";
 
 const navItems = [
   { label: "Getting started", id: "getting-started" },
-  { label: "Context", id: "context" },
   { label: "The Challenge", id: "challenge" },
-  { label: "My Role", id: "my-role" },
   { label: "Business", id: "business" },
   { label: "User Interviews", id: "user-interviews" },
   { label: "Competitors", id: "competitors" },
   { label: "The solution", id: "solution" },
   { label: "Learnings", id: "learnings" },
-  { label: "Shout-outs", id: "shout-outs" },
-  { label: "Mentorship", id: "mentorship" },
-  { label: "Top", id: "top" },
-];
+]
 
-const liveSections = ["challenge", "business", "user-interviews"];
+const liveSections = [
+  "challenge",
+  "context",
+  "business",
+  "user-interviews",
+  "redefined-challenge",
+  "competitors",
+  "solution",
+  "learnings",
+];
 
 export default function CaseStudyLayout() {
   const [activeSection, setActiveSection] = useState("challenge");
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0.25, rootMargin: "-80px 0px -55% 0px" }
-    );
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 120;
+      let current = liveSections[0];
+      for (const id of liveSections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top + window.scrollY <= scrollY) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
+    };
 
-    liveSections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -57,9 +70,9 @@ export default function CaseStudyLayout() {
   };
 
   return (
-    <div className="flex border-t border-gray-200">
-      {/* Sticky left sidebar */}
-      <aside className="hidden md:flex flex-col w-64 shrink-0 sticky top-0 h-screen bg-white border-r border-gray-100 overflow-y-auto px-6 py-10">
+    <div className="relative border-t border-gray-200">
+      {/* Sticky left sidebar — overlays so main content centers on the full viewport */}
+      <aside className="hidden md:flex flex-col w-64 fixed top-0 left-0 h-screen bg-white border-r border-gray-100 overflow-y-auto px-6 py-10 z-10">
         <ul className="space-y-1">
           {navItems.map(({ label, id }) => {
             const isActive = activeSection === id;
@@ -87,11 +100,16 @@ export default function CaseStudyLayout() {
         </ul>
       </aside>
 
-      {/* Main content */}
-      <div className="flex-1 px-10 md:px-20 py-20 max-w-5xl">
+      {/* Main content — centered on the full viewport */}
+      <div className="mx-auto px-8 md:px-16 py-20 max-w-5xl">
         <ChallengeSection />
+        <ContextSection />
         <BusinessSection />
         <UserInterviewsSection />
+        <RedefinedChallengeSection />
+        <CompetitorsSection />
+        <SolutionSection />
+        <LearningSection />
       </div>
     </div>
   );

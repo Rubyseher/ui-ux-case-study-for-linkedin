@@ -14,7 +14,7 @@ export default function TopNav() {
   };
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/90 backdrop-blur-md border border-gray-200 rounded-full shadow-sm px-6 py-3 flex items-center gap-7 text-sm whitespace-nowrap">
+    <nav className="fixed top-5 inset-x-0 mx-auto w-fit z-50 bg-white/90 backdrop-blur-md border border-gray-200 rounded-full shadow-sm px-6 py-3 flex items-center gap-7 text-sm whitespace-nowrap">
       <span className="font-semibold text-gray-900 text-[15px]">Ruby Seher</span>
       {links.map(({ label, href }) => (
         <a

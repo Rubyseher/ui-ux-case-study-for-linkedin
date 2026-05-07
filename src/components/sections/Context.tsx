@@ -37,9 +37,9 @@ export default function ContextSection() {
       {/* Brief breakdown diagram */}
       <div className="mb-10 max-w-5xl mx-auto">
         <img
-          src="/brief-breakdown.svg"
+          src="/challenge/brief-breakdown.svg"
           alt="Brief breakdown — mapping each ambiguous term to a specific user, behaviour, or outcome"
-          className="w-full h-auto"
+          className="w-full h-auto rounded-2xl shadow-md"
         />
       </div>
 

@@ -1,6 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  Quote,
+  Target,
+  LineChart,
+  User,
+  RefreshCw,
+  Building2,
+  Sparkles,
+  GraduationCap,
+} from "lucide-react";
 import ChallengeSection from "./sections/Challenge";
 import ContextSection from "./sections/Context";
 import BusinessSection from "./sections/Business";
@@ -11,14 +21,15 @@ import SolutionSection from "./sections/Solution";
 import LearningSection from "./sections/Learning";
 
 const navItems = [
-  { label: "Getting started", id: "getting-started" },
-  { label: "The Challenge", id: "challenge" },
-  { label: "Business", id: "business" },
-  { label: "User Interviews", id: "user-interviews" },
-  { label: "Competitors", id: "competitors" },
-  { label: "The solution", id: "solution" },
-  { label: "Learnings", id: "learnings" },
-]
+  { label: "The Challenge", id: "challenge", Icon: Target },
+  { label: "Context", id: "context", Icon: Quote },
+  { label: "Business", id: "business", Icon: LineChart },
+  { label: "User Interviews", id: "user-interviews", Icon: User },
+  { label: "Redefined Challenge", id: "redefined-challenge", Icon: RefreshCw },
+  { label: "Competitors", id: "competitors", Icon: Building2 },
+  { label: "Solution", id: "solution", Icon: Sparkles },
+  { label: "Learning", id: "learnings", Icon: GraduationCap },
+];
 
 const liveSections = [
   "challenge",
@@ -74,7 +85,7 @@ export default function CaseStudyLayout() {
       {/* Sticky left sidebar — overlays so main content centers on the full viewport */}
       <aside className="hidden md:flex flex-col w-64 fixed top-0 left-0 h-screen bg-white border-r border-gray-100 overflow-y-auto px-6 py-10 z-10">
         <ul className="space-y-1">
-          {navItems.map(({ label, id }) => {
+          {navItems.map(({ label, id, Icon }) => {
             const isActive = activeSection === id;
             return (
               <li key={id}>
@@ -84,12 +95,14 @@ export default function CaseStudyLayout() {
                   className={`flex items-center gap-3 py-2 text-[14px] leading-snug transition-colors ${
                     isActive
                       ? "text-gray-900 font-semibold"
-                      : "text-gray-400 hover:text-gray-700"
+                      : "text-gray-500 hover:text-gray-800"
                   }`}
                 >
-                  <span
-                    className={`w-1 h-1 rounded-full shrink-0 ${
-                      isActive ? "bg-gray-900" : "bg-gray-300"
+                  <Icon
+                    size={18}
+                    strokeWidth={1.6}
+                    className={`shrink-0 ${
+                      isActive ? "text-gray-900" : "text-gray-400"
                     }`}
                   />
                   {label}

@@ -19,7 +19,17 @@ export default function Hero() {
       </div>
 
       {/* Heading — line 1 black, line 2 blue, exact PDF layout */}
-      <h1 className="leading-[1.04] tracking-tight mb-8" style={{ fontSize: "clamp(48px, 6vw, 80px)", fontWeight: 700 }}>
+      <h1
+        className="mb-8"
+        style={{
+          fontFamily:
+            '"SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif',
+          fontSize: "clamp(48px, 6vw, 80px)",
+          fontWeight: 700,
+          lineHeight: 1.0834933,
+          letterSpacing: "-0.005em",
+        }}
+      >
         <span className="block text-gray-900">A job search that finally</span>
         <span className="block text-[#007EBB]">talks back</span>
       </h1>

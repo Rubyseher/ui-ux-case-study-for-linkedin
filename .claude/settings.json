@@ -6,7 +6,12 @@
       "Bash(find /tmp /var/folders -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \\\\\\) -mmin -10 2>/dev/null | head -20)",
       "Read(//private/tmp/**)",
       "Bash(curl -sI http://localhost:3001/buisness/buisness_stats.png)",
-      "Bash(curl -sI http://localhost:3000/buisness/buisness_stats.png)"
+      "Bash(curl -sI http://localhost:3000/buisness/buisness_stats.png)",
+      "Bash(git commit -m ' *)",
+      "Bash(awk -v RS='<path ' 'NR>1 && /M50 50/ {print \"<path \" $0; exit}' /Users/ruby/Desktop/projec/linkedin-case-study/public/challenge/brief-breakdown.svg)",
+      "Bash(grep -oE 'M5[0-9] 5[0-9][^\"]{0,200}' /Users/ruby/Desktop/projec/linkedin-case-study/public/challenge/brief-breakdown.svg)",
+      "Bash(awk '/<path /{print NR\": \"$0}')",
+      "Bash(grep -oE \"^export \\\\{[^}]{0,200}\" node_modules/lucide-react/dist/esm/lucide-react.mjs)"
     ]
   }
 }

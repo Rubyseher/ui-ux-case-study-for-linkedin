@@ -3,7 +3,7 @@ import ImagePlaceholder from "../ImagePlaceholder";
 export default function UserInterviewsSection() {
   return (
     <section id="user-interviews" className="mb-40 scroll-mt-20">
-      <h2 className="text-center text-[56px] md:text-[64px] font-black leading-tight mb-10 bg-linear-to-r from-[#0E2640] via-[#33516E] to-[#6084A6] bg-clip-text text-transparent">
+      <h2 className="text-center text-[56px] md:text-[64px] font-black leading-tight mb-10 bg-linear-to-r from-[#0E2640] from-10% via-[#33516E] via-30% to-[#6084A6] bg-clip-text text-transparent">
         User Interviews
       </h2>
 
@@ -30,22 +30,22 @@ export default function UserInterviewsSection() {
         </p>
       </div>
 
-      {/* 3 pillar cards — placeholders */}
+      {/* 3 pillar cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 max-w-5xl mx-auto">
-        <ImagePlaceholder
-          alt="A. VISIBILITY — Users have no signal after applying. No confirmation a recruiter opened their profile, no status update."
-          aspectRatio="3/4"
-          className="shadow-sm bg-white"
+        <img
+          src="/userInterviews/cluster_1.png"
+          alt="A. VISIBILITY — Users have no signal after applying."
+          className="w-full h-auto rounded-2xl shadow-md"
         />
-        <ImagePlaceholder
-          alt="C. MENTAL LOAD — Sustained silence compounds. 66% of job seekers point to lack of feedback as the cause of burnout."
-          aspectRatio="3/4"
-          className="shadow-sm bg-white"
+        <img
+          src="/userInterviews/cluster_2.png"
+          alt="C. MENTAL LOAD — Sustained silence compounds. 66% cite lack of feedback as the cause of burnout."
+          className="w-full h-auto rounded-2xl shadow-md"
         />
-        <ImagePlaceholder
-          alt="B. TRACKING — There is no native way to manage multiple applications. Users build their own spreadsheets, some logging 500+ roles."
-          aspectRatio="3/4"
-          className="shadow-sm bg-white"
+        <img
+          src="/userInterviews/cluster_3.png"
+          alt="B. TRACKING — No native way to manage multiple applications; users log 500+ roles in their own spreadsheets."
+          className="w-full h-auto rounded-2xl shadow-md"
         />
       </div>
 

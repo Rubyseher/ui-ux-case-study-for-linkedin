@@ -1,5 +1,3 @@
-import ImagePlaceholder from "../ImagePlaceholder";
-
 const featureSets = [
   {
     title: "Feature set 1. Real-time application status tracking",
@@ -76,32 +74,42 @@ export default function SolutionSection() {
         ))}
       </div>
 
-      {/* Feature sets */}
-      <div className="space-y-24 max-w-6xl mx-auto">
-        {featureSets.map(({ title, body, imageAlt }) => (
-          <div
-            key={title}
-            className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
-          >
-            <div className="space-y-5">
-              <h3 className="text-[20px] font-bold text-gray-900 leading-snug">
+      {/* Feature sets — break out of the parent container width on md+ */}
+      <div
+        className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16 md:max-w-none"
+        style={{
+          width: "calc(100vw - 19rem)",
+          marginLeft: "calc(50% - 50vw + 9rem)",
+        }}
+      >
+        <div>
+          {featureSets.map(({ title, body }) => (
+            <article
+              key={title}
+              className="min-h-screen flex flex-col justify-center"
+            >
+              <h3 className="text-[28px] md:text-[32px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-8">
                 {title}
               </h3>
               {body.map((p, i) => (
-                <p key={i} className="text-[16px] text-gray-700 leading-relaxed">
+                <p
+                  key={i}
+                  className="text-[18px] text-gray-800 leading-[1.6] mb-5"
+                >
                   {p}
                 </p>
               ))}
-            </div>
-            <div>
-              <ImagePlaceholder
-                alt={imageAlt}
-                aspectRatio="16/10"
-                className="shadow-md bg-white"
-              />
-            </div>
-          </div>
-        ))}
+            </article>
+          ))}
+        </div>
+
+        <div className="hidden md:flex sticky top-0 h-screen items-center self-start">
+          <img
+            src="/hero-mockup.png"
+            alt="LinkedIn job application tracker mockup"
+            className="h-auto w-full max-w-none"
+          />
+        </div>
       </div>
     </section>
   );

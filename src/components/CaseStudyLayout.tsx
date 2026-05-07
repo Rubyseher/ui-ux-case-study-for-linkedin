@@ -44,6 +44,7 @@ const liveSections = [
 
 export default function CaseStudyLayout() {
   const [activeSection, setActiveSection] = useState("challenge");
+  const [showSidebar, setShowSidebar] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +57,12 @@ export default function CaseStudyLayout() {
         }
       }
       setActiveSection(current);
+
+      const challenge = document.getElementById("challenge");
+      if (challenge) {
+        const top = challenge.getBoundingClientRect().top + window.scrollY;
+        setShowSidebar(window.scrollY >= top - 200);
+      }
     };
 
     handleScroll();
@@ -83,7 +90,11 @@ export default function CaseStudyLayout() {
   return (
     <div className="relative border-t border-gray-200">
       {/* Sticky left sidebar — overlays so main content centers on the full viewport */}
-      <aside className="hidden md:flex flex-col w-64 fixed top-0 left-0 h-screen bg-white border-r border-gray-100 overflow-y-auto px-6 py-10 z-10">
+      <aside
+        className={`hidden md:flex flex-col w-64 fixed top-0 left-0 h-screen bg-white border-r border-gray-100 overflow-y-auto px-6 py-10 z-10 transition-opacity duration-300 ${
+          showSidebar ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
         <ul className="space-y-1">
           {navItems.map(({ label, id, Icon }) => {
             const isActive = activeSection === id;
@@ -113,8 +124,9 @@ export default function CaseStudyLayout() {
         </ul>
       </aside>
 
-      {/* Main content — centered on the full viewport */}
-      <div className="mx-auto px-8 md:px-16 py-20 max-w-5xl">
+      {/* Main content — reserve sidebar space, then center within remaining viewport */}
+      <div className="md:ml-55">
+        <div className="mx-auto px-8 md:px-16 py-20 max-w-5xl">
         <ChallengeSection />
         <ContextSection />
         <BusinessSection />
@@ -123,6 +135,7 @@ export default function CaseStudyLayout() {
         <CompetitorsSection />
         <SolutionSection />
         <LearningSection />
+        </div>
       </div>
     </div>
   );

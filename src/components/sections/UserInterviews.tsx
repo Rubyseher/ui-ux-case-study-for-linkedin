@@ -1,5 +1,3 @@
-import ImagePlaceholder from "../ImagePlaceholder";
-
 export default function UserInterviewsSection() {
   return (
     <section id="user-interviews" className="mb-40 scroll-mt-20">
@@ -30,47 +28,20 @@ export default function UserInterviewsSection() {
         </p>
       </div>
 
-      {/* 3 pillar cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 max-w-5xl mx-auto">
-        <img
-          src="/userInterviews/cluster_1.png"
-          alt="A. VISIBILITY — Users have no signal after applying."
-          className="w-full h-auto rounded-2xl shadow-md"
-        />
-        <img
-          src="/userInterviews/cluster_2.png"
-          alt="C. MENTAL LOAD — Sustained silence compounds. 66% cite lack of feedback as the cause of burnout."
-          className="w-full h-auto rounded-2xl shadow-md"
-        />
-        <img
-          src="/userInterviews/cluster_3.png"
-          alt="B. TRACKING — No native way to manage multiple applications; users log 500+ roles in their own spreadsheets."
-          className="w-full h-auto rounded-2xl shadow-md"
-        />
-      </div>
-
-      {/* 4 numbered user stories — placeholders */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
-        <ImagePlaceholder
-          alt="1. As a user, I want to know what happened to my application after I submitted it. 96% of LinkedIn applications receive no response. Source: HiringThing, 2026"
-          aspectRatio="4/3"
-          className="shadow-sm bg-white"
-        />
-        <ImagePlaceholder
-          alt="2. As a user, I want to stop hearing nothing for weeks without knowing why. 69% of applicants endured 3+ weeks of silence. Source: Greenhouse 2024 · eWeek 2025"
-          aspectRatio="4/3"
-          className="shadow-sm bg-white"
-        />
-        <ImagePlaceholder
-          alt="3. As a user, I want one place to track everything, not a spreadsheet I built myself. Real job seekers log 500+ applications manually. Source: Reddit r/jobs 2025 to 2026"
-          aspectRatio="4/3"
-          className="shadow-sm bg-white"
-        />
-        <ImagePlaceholder
-          alt="4. As a user, I want to feel like my search is going somewhere, not just piling up. 72% of job seekers say job hunting impacts mental health. Source: The Interview Guys, 2025"
-          aspectRatio="4/3"
-          className="shadow-sm bg-white"
-        />
+      {/* 3 user-interview images stacked vertically — alternating left / right */}
+      <div className="flex flex-col">
+        {[1, 2, 3].map((n) => (
+          <div
+            key={n}
+            className={`flex ${n % 2 === 0 ? "justify-end" : "justify-start"}`}
+          >
+            <img
+              src={`/userInterviews/imessage_v3_${n}.png`}
+              alt={`User interview ${n}`}
+              className="w-full max-w-md h-auto"
+            />
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-[80vh]  text-center px-8 pt-20">
+    <section className="flex flex-col items-center justify-center min-h-screen text-center px-8 pt-20">
       {/* LinkedIn badge */}
       <div className="flex items-center gap-3 mb-12">
         <Image

@@ -49,14 +49,12 @@ export default function BusinessSection() {
         seeker who needs to manage their search, not just start it.
       </p>
 
-      {/* Insights — sticky left label, full-viewport scroll storytelling per item */}
+      {/* Insights — full-height sticky label that stays centered through the block */}
       <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 md:gap-24 max-w-6xl mx-auto">
-        <div className="hidden md:block">
-          <div className="sticky top-1/2 -translate-y-1/2">
-            <h3 className="text-[72px] font-bold leading-none bg-linear-to-r from-[#0E2640] via-[#33516E] to-[#6084A6] bg-clip-text text-transparent">
-              Insights
-            </h3>
-          </div>
+        <div className="hidden md:flex sticky top-0 h-screen items-center self-start">
+          <h3 className="text-[72px] font-bold leading-none bg-linear-to-r from-[#0E2640] via-[#33516E] to-[#6084A6] bg-clip-text text-transparent">
+            Insights
+          </h3>
         </div>
 
         <div>

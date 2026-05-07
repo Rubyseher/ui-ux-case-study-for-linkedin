@@ -1,5 +1,3 @@
-import ImagePlaceholder from "../ImagePlaceholder";
-
 const competitors = [
   {
     title: "A. Real-time application status tracking",
@@ -8,6 +6,7 @@ const competitors = [
       "The gap: every status update is manual. The user drags the card. There is no connection to LinkedIn or any recruiter-side signal. You can track that you applied. You cannot track what happened after.",
     ],
     tagline: "No recruiter-side signals. No LinkedIn integration.",
+    image: "/competitors/comp1.png",
     imageAlt: "Competitor research — Real-time application status tracking (Huntr, Jobscan kanban boards)",
   },
   {
@@ -17,6 +16,7 @@ const competitors = [
       "The gap: none of this exists natively in LinkedIn today. Applicants can see the stage they submitted to. They cannot see whether a recruiter opened their profile, whether the role is still being actively considered, or whether the posting has gone dark. LinkedIn holds this data. It does not surface it.",
     ],
     tagline: "Applicants see submission status. Recruiter activity is invisible.",
+    image: "/competitors/comp2.png",
     imageAlt: "Competitor research — UX Planet concept by Pranati Rao surfacing LinkedIn application signals",
   },
   {
@@ -26,6 +26,7 @@ const competitors = [
       "The gap: for laid-off professionals who have been through multiple rounds of displacement, the search history is valuable data. None of the existing tools treat it that way.",
     ],
     tagline: "Data retained. Context lost. No learning across searches.",
+    image: "/competitors/comp3.png",
     imageAlt: "Competitor research — Huntr, Built In tracker, autofill extensions across multiple searches",
   },
   {
@@ -35,6 +36,7 @@ const competitors = [
       "The gap: every existing tool is functional. None of them are built around the emotional reality of a sustained search — the need to feel like the search is going somewhere, not just accumulating.",
     ],
     tagline: "No single place to see your entire job search at a glance.",
+    image: "/competitors/comp4.png",
     imageAlt: "Competitor research — Reddit r/jobs DIY dashboards and automated tracking tools",
   },
 ];
@@ -53,7 +55,7 @@ export default function CompetitorsSection() {
       </p>
 
       <div className="space-y-20 max-w-5xl mx-auto">
-        {competitors.map(({ title, body, tagline, imageAlt }) => (
+        {competitors.map(({ title, body, tagline, image, imageAlt }) => (
           <div
             key={title}
             className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start"
@@ -70,10 +72,10 @@ export default function CompetitorsSection() {
               </p>
             </div>
             <div className="md:pt-2">
-              <ImagePlaceholder
+              <img
+                src={image}
                 alt={imageAlt}
-                aspectRatio="16/10"
-                className="shadow-sm bg-white"
+                className="w-full h-auto rounded-2xl shadow-md"
               />
             </div>
           </div>
